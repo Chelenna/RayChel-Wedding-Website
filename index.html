@@ -1721,10 +1721,19 @@
       import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
       const firebaseConfig = window.__FIREBASE_CONFIG__ || {};
+      let app = null;
+      let db = null;
+      let rsvpCollection = null;
 
-      const app = initializeApp(firebaseConfig);
-      const db = getFirestore(app);
-      const rsvpCollection = collection(db, "rsvps");
+      if (firebaseConfig && firebaseConfig.projectId) {
+        try {
+          app = initializeApp(firebaseConfig);
+          db = getFirestore(app);
+          rsvpCollection = collection(db, "rsvps");
+        } catch (error) {
+          console.warn("Firebase initialization skipped:", error);
+        }
+      }
 
       // Initialize Lucide Icons
       lucide.createIcons();
@@ -1757,6 +1766,8 @@
           }, 1000);
         }, 1500);
       }
+
+      window.openEnvelope = openEnvelope;
 
       // ======== COUNTDOWN ========
       function startCountdown() {
@@ -1836,7 +1847,6 @@
         }
       }
 
-      window.openEnvelope = openEnvelope;
       window.toggleMobileMenu = toggleMobileMenu;
       window.toggleFaq = toggleFaq;
 
@@ -1850,6 +1860,11 @@
 
         if (!name || !attendance) {
           showToast("Please fill in all required fields.", "error");
+          return;
+        }
+
+        if (!rsvpCollection) {
+          showToast("RSVP is temporarily unavailable. Please try again later.", "error");
           return;
         }
 
