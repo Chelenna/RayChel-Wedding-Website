@@ -1714,17 +1714,31 @@
     <!-- Toast Container -->
     <div id="toastContainer" class="fixed bottom-6 right-6 z-[70] space-y-3"></div>
 
-    <script src="firebase-config.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
       import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-      const firebaseConfig = window.__FIREBASE_CONFIG__ || {};
+      let app = null;
+      let db = null;
+      let rsvpCollection = null;
 
-      const app = initializeApp(firebaseConfig);
-      const db = getFirestore(app);
-      const rsvpCollection = collection(db, "rsvps");
+      async function initFirebase() {
+        try {
+          const response = await fetch("/api/firebase-config");
+          const firebaseConfig = await response.json();
+
+          if (firebaseConfig && firebaseConfig.projectId) {
+            app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            rsvpCollection = collection(db, "rsvps");
+          }
+        } catch (error) {
+          console.warn("Firebase initialization skipped:", error);
+        }
+      }
+
+      await initFirebase();
 
       // Initialize Lucide Icons
       lucide.createIcons();
@@ -1850,6 +1864,11 @@
 
         if (!name || !attendance) {
           showToast("Please fill in all required fields.", "error");
+          return;
+        }
+
+        if (!rsvpCollection) {
+          showToast("RSVP is temporarily unavailable. Please try again later.", "error");
           return;
         }
 

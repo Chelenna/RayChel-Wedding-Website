@@ -8,7 +8,6 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap"
       rel="stylesheet" />
-    <script src="firebase-config.js"></script>
   </head>
   <body class="bg-cream text-charcoal min-h-screen">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
@@ -50,55 +49,67 @@
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
       import { getFirestore, collection, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-      const config = window.__FIREBASE_CONFIG__ || {};
       const tbody = document.getElementById("responsesBody");
       const acceptedCountEl = document.getElementById("acceptedCount");
       const declinedCountEl = document.getElementById("declinedCount");
 
-      if (!config.projectId) {
-        tbody.innerHTML = `<tr><td colspan="4" class="px-4 py-8 text-center text-red-600">Firebase config is missing. Check firebase-config.js.</td></tr>`;
-      } else {
-        const app = initializeApp(config);
-        const db = getFirestore(app);
-        const q = query(collection(db, "rsvps"), orderBy("submittedAt", "desc"));
+      async function initResponsesPage() {
+        try {
+          const response = await fetch("/api/firebase-config");
+          const config = await response.json();
 
-        onSnapshot(
-          q,
-          (snapshot) => {
-            const acceptedCount = snapshot.docs.filter((doc) => doc.data().attendance === "accept").length;
-            const declinedCount = snapshot.docs.filter((doc) => doc.data().attendance === "decline").length;
-            acceptedCountEl.textContent = acceptedCount;
-            declinedCountEl.textContent = declinedCount;
+          if (!config.projectId) {
+            tbody.innerHTML = `<tr><td colspan="4" class="px-4 py-8 text-center text-red-600">Firebase config is missing. Check Vercel environment variables.</td></tr>`;
+            return;
+          }
 
-            if (snapshot.empty) {
-              tbody.innerHTML = `<tr><td colspan="4" class="px-4 py-8 text-center text-warm-gray">No RSVP responses yet.</td></tr>`;
-              return;
-            }
+          const app = initializeApp(config);
+          const db = getFirestore(app);
+          const q = query(collection(db, "rsvps"), orderBy("submittedAt", "desc"));
 
-            tbody.innerHTML = snapshot.docs
-              .map((doc) => {
-                const data = doc.data();
-                const submittedAt = data.submittedAt?.toDate?.() ? data.submittedAt.toDate().toLocaleString() : "—";
-                const attendance = data.attendance === "accept" ? "Accept" : data.attendance === "decline" ? "Decline" : data.attendance || "—";
-                const message = data.message ? data.message : "—";
+          onSnapshot(
+            q,
+            (snapshot) => {
+              const acceptedCount = snapshot.docs.filter((doc) => doc.data().attendance === "accept").length;
+              const declinedCount = snapshot.docs.filter((doc) => doc.data().attendance === "decline").length;
+              acceptedCountEl.textContent = acceptedCount;
+              declinedCountEl.textContent = declinedCount;
 
-                return `
-                  <tr class="hover:bg-blush/30">
-                    <td class="px-4 py-3 font-medium">${data.name || "—"}</td>
-                    <td class="px-4 py-3">${attendance}</td>
-                    <td class="px-4 py-3 max-w-md">${message}</td>
-                    <td class="px-4 py-3 text-warm-gray">${submittedAt}</td>
-                  </tr>
-                `;
-              })
-              .join("");
-          },
-          (error) => {
-            console.error("Failed to load RSVP responses:", error);
-            tbody.innerHTML = `<tr><td colspan="4" class="px-4 py-8 text-center text-red-600">Unable to load responses. ${error.message || "Check Firestore rules and your network connection."}</td></tr>`;
-          },
-        );
+              if (snapshot.empty) {
+                tbody.innerHTML = `<tr><td colspan="4" class="px-4 py-8 text-center text-warm-gray">No RSVP responses yet.</td></tr>`;
+                return;
+              }
+
+              tbody.innerHTML = snapshot.docs
+                .map((doc) => {
+                  const data = doc.data();
+                  const submittedAt = data.submittedAt?.toDate?.() ? data.submittedAt.toDate().toLocaleString() : "—";
+                  const attendance = data.attendance === "accept" ? "Accept" : data.attendance === "decline" ? "Decline" : data.attendance || "—";
+                  const message = data.message ? data.message : "—";
+
+                  return `
+                    <tr class="hover:bg-blush/30">
+                      <td class="px-4 py-3 font-medium">${data.name || "—"}</td>
+                      <td class="px-4 py-3">${attendance}</td>
+                      <td class="px-4 py-3 max-w-md">${message}</td>
+                      <td class="px-4 py-3 text-warm-gray">${submittedAt}</td>
+                    </tr>
+                  `;
+                })
+                .join("");
+            },
+            (error) => {
+              console.error("Failed to load RSVP responses:", error);
+              tbody.innerHTML = `<tr><td colspan="4" class="px-4 py-8 text-center text-red-600">Unable to load responses. ${error.message || "Check Firestore rules and your network connection."}</td></tr>`;
+            },
+          );
+        } catch (error) {
+          console.error("Failed to initialize RSVP responses page:", error);
+          tbody.innerHTML = `<tr><td colspan="4" class="px-4 py-8 text-center text-red-600">Unable to load responses. ${error.message || "Check your Vercel configuration."}</td></tr>`;
+        }
       }
+
+      await initResponsesPage();
     </script>
   </body>
 </html>
