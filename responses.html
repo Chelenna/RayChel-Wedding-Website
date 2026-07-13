@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RSVP Responses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+    <script src="firebase-config.js"></script>
+  </head>
+  <body class="bg-cream text-charcoal min-h-screen">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+      <div class="mb-8">
+        <a href="index.html" class="text-sm text-gold underline">← Back to wedding site</a>
+        <h1 class="font-serif text-4xl sm:text-5xl mt-4">RSVP Responses</h1>
+        <p class="font-sans text-sm text-warm-gray mt-2">All guest responses submitted through the RSVP form.</p>
+      </div>
+
+      <div class="mb-6 flex flex-wrap gap-4">
+        <div class="bg-white rounded-2xl shadow-md px-5 py-4 min-w-[180px]">
+          <p class="text-sm text-warm-gray">Accepted</p>
+          <p id="acceptedCount" class="text-3xl font-semibold text-gold-dark">0</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow-md px-5 py-4 min-w-[180px]">
+          <p class="text-sm text-warm-gray">Declined</p>
+          <p id="declinedCount" class="text-3xl font-semibold text-gold-dark">0</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-left text-sm">
+            <thead class="bg-blush text-charcoal">
+              <tr>
+                <th class="px-4 py-3 font-semibold">Name</th>
+                <th class="px-4 py-3 font-semibold">Attendance</th>
+                <th class="px-4 py-3 font-semibold">Message</th>
+                <th class="px-4 py-3 font-semibold">Submitted</th>
+              </tr>
+            </thead>
+            <tbody id="responsesBody" class="divide-y divide-gray-100"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+      import { getFirestore, collection, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+      const config = window.__FIREBASE_CONFIG__ || {};
+      const tbody = document.getElementById("responsesBody");
+      const acceptedCountEl = document.getElementById("acceptedCount");
+      const declinedCountEl = document.getElementById("declinedCount");
+
+      if (!config.projectId) {
+        tbody.innerHTML = `<tr><td colspan="4" class="px-4 py-8 text-center text-red-600">Firebase config is missing. Check firebase-config.js.</td></tr>`;
+      } else {
+        const app = initializeApp(config);
+        const db = getFirestore(app);
+        const q = query(collection(db, "rsvps"), orderBy("submittedAt", "desc"));
+
+        onSnapshot(
+          q,
+          (snapshot) => {
+            const acceptedCount = snapshot.docs.filter((doc) => doc.data().attendance === "accept").length;
+            const declinedCount = snapshot.docs.filter((doc) => doc.data().attendance === "decline").length;
+            acceptedCountEl.textContent = acceptedCount;
+            declinedCountEl.textContent = declinedCount;
+
+            if (snapshot.empty) {
+              tbody.innerHTML = `<tr><td colspan="4" class="px-4 py-8 text-center text-warm-gray">No RSVP responses yet.</td></tr>`;
+              return;
+            }
+
+            tbody.innerHTML = snapshot.docs
+              .map((doc) => {
+                const data = doc.data();
+                const submittedAt = data.submittedAt?.toDate?.() ? data.submittedAt.toDate().toLocaleString() : "—";
+                const attendance = data.attendance === "accept" ? "Accept" : data.attendance === "decline" ? "Decline" : data.attendance || "—";
+                const message = data.message ? data.message : "—";
+
+                return `
+                  <tr class="hover:bg-blush/30">
+                    <td class="px-4 py-3 font-medium">${data.name || "—"}</td>
+                    <td class="px-4 py-3">${attendance}</td>
+                    <td class="px-4 py-3 max-w-md">${message}</td>
+                    <td class="px-4 py-3 text-warm-gray">${submittedAt}</td>
+                  </tr>
+                `;
+              })
+              .join("");
+          },
+          (error) => {
+            console.error("Failed to load RSVP responses:", error);
+            tbody.innerHTML = `<tr><td colspan="4" class="px-4 py-8 text-center text-red-600">Unable to load responses. ${error.message || "Check Firestore rules and your network connection."}</td></tr>`;
+          },
+        );
+      }
+    </script>
+  </body>
+</html>
