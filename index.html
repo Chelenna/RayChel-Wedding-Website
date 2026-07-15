@@ -6,11 +6,16 @@
     <meta property="og:title" content="Raymond & Rachel - Wedding Invitation" />
     <meta property="og:description" content="Join us as we celebrate our wedding day." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="images/cover.JPG" />
+    <meta property="og:image" content="/images/cover.JPG" />
+    <meta property="og:image:secure_url" content="/images/cover.JPG" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Raymond and Rachel wedding invitation cover" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Raymond & Rachel - Wedding Invitation" />
     <meta name="twitter:description" content="Join us as we celebrate our wedding day." />
-    <meta name="twitter:image" content="images/cover.JPG" />
+    <meta name="twitter:image" content="/images/cover.JPG" />
     <title>Raymond & Rachel - Wedding Invitation</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
@@ -482,9 +487,11 @@
               <a href="#faqs" class="nav-link font-sans text-xs tracking-widest uppercase text-warm-gray hover:text-charcoal transition-colors"
                 >FAQs</a
               >
-              <!-- <a href="prenup-gallery.html" class="nav-link font-sans text-xs tracking-widest uppercase text-warm-gray hover:text-charcoal transition-colors"
-                >Prenup</a
-              > -->
+              <a
+                href="prenup-gallery.html"
+                class="nav-link font-sans text-xs tracking-widest uppercase text-warm-gray hover:text-charcoal transition-colors"
+                >Photos</a
+              >
               <a
                 href="#rsvp"
                 class="font-sans text-xs tracking-widest uppercase bg-gold text-white px-6 py-2 rounded hover:bg-gold-dark transition-colors"
@@ -512,7 +519,7 @@
           <a href="#location" onclick="toggleMobileMenu()" class="font-serif text-2xl text-charcoal hover:text-gold transition-colors">Location</a>
           <a href="#faqs" onclick="toggleMobileMenu()" class="font-serif text-2xl text-charcoal hover:text-gold transition-colors">FAQs</a>
           <a href="prenup-gallery.html" onclick="toggleMobileMenu()" class="font-serif text-2xl text-charcoal hover:text-gold transition-colors"
-            >Prenup</a
+            >Photos</a
           >
           <a href="#rsvp" onclick="toggleMobileMenu()" class="font-serif text-2xl text-gold">RSVP</a>
         </div>
@@ -523,40 +530,40 @@
       <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0">
           <img src="images/cover.JPG" alt="Wedding background" class="w-full h-full object-cover" />
-          <div class="absolute inset-0 bg-gradient-to-b from-cream/70 via-cream/50 to-cream"></div>
+          <div class="absolute inset-0 bg-gradient-to-b from-cream/90 via-cream/70 to-cream"></div>
         </div>
         <div class="relative z-10 text-center px-4 py-20">
           <p class="font-sans font-semibold text-xs tracking-[0.3em] uppercase text-gold mb-4 section-hidden">We're getting married</p>
-          <h1 class="font-serif text-5xl sm:text-7xl lg:text-8xl font-bold text-charcoal mb-2 section-hidden">
-            Raymond <span class="font-script text-gold font-normal text-4xl sm:text-6xl lg:text-7xl">&</span> Rachel
+          <h1 class="font-script text-5xl sm:text-7xl lg:text-8xl text-gold mb-2 section-hidden">
+            Raymond <span class="font-script text-gold font-normal text-2xl sm:text-4xl lg:text-5xl">&</span> Rachel
           </h1>
           <div class="flex items-center gap-4 justify-center my-6 section-hidden">
             <div class="h-px w-16 sm:w-24 bg-gold"></div>
             <i data-lucide="heart" class="w-5 h-5 text-gold fill-gold/50"></i>
             <div class="h-px w-16 sm:w-24 bg-gold"></div>
           </div>
-          <p class="font-serif text-xl sm:text-2xl text-charcoal mb-8 section-hidden">Tuesday, September 08, 2026</p>
-          <p class="font-serif text-xl sm:text-2xl text-charcoal mb-12 section-hidden">#ChelyadoNaNiRaymond</p>
+          <p class="font-serif font-semibold text-xl sm:text-2xl text-charcoal mb-8 section-hidden">Tuesday, September 08, 2026</p>
+          <p class="font-serif font-medium sm:text-xl text-charcoal mb-12 section-hidden">#ChelyadoNaNiRaymond</p>
 
           <!-- Countdown -->
-          <div id="countdown" class="flex items-center justify-center gap-4 sm:gap-8 mb-12 section-hidden">
+          <div id="countdown" class="flex items-center justify-center gap-3 sm:gap-8 mb-12 section-hidden">
             <div class="text-center">
-              <div id="days" class="font-serif text-4xl sm:text-5xl text-charcoal">00</div>
+              <div id="days" class="font-serif text-3xl sm:text-5xl text-charcoal">00</div>
               <div class="font-sans text-[10px] tracking-widest uppercase text-charcoal mt-1">Days</div>
             </div>
             <div class="font-serif text-3xl text-gold">:</div>
             <div class="text-center">
-              <div id="hours" class="font-serif text-4xl sm:text-5xl text-charcoal">00</div>
+              <div id="hours" class="font-serif text-3xl sm:text-5xl text-charcoal">00</div>
               <div class="font-sans text-[10px] tracking-widest uppercase text-charcoal mt-1">Hours</div>
             </div>
             <div class="font-serif text-3xl text-gold">:</div>
             <div class="text-center">
-              <div id="minutes" class="font-serif text-4xl sm:text-5xl text-charcoal">00</div>
+              <div id="minutes" class="font-serif text-3xl sm:text-5xl text-charcoal">00</div>
               <div class="font-sans text-[10px] tracking-widest uppercase text-charcoal mt-1">Minutes</div>
             </div>
             <div class="font-serif text-3xl text-gold">:</div>
             <div class="text-center">
-              <div id="seconds" class="font-serif text-4xl sm:text-5xl text-charcoal">00</div>
+              <div id="seconds" class="font-serif text-3xl sm:text-5xl text-charcoal">00</div>
               <div class="font-sans text-[10px] tracking-widest uppercase text-charcoal mt-1">Seconds</div>
             </div>
           </div>
@@ -679,8 +686,8 @@
                 <img src="images/atepam.jpg" alt="Emily Thompson" class="w-full h-full object-cover" />
               </div> -->
               <p class="font-sans font-semibold text-[10px] tracking-widest uppercase text-gold mb-1">Parents of the Groom</p>
-              <h3 class="font-serif text-lg text-charcoal">Raymundo Raguero</h3>
-              <h3 class="font-serif text-lg text-charcoal">Ruena Raguero</h3>
+              <h3 class="font-serif text-sm sm:text-lg text-charcoal">Raymundo Raguero</h3>
+              <h3 class="font-serif text-sm sm:text-lg text-charcoal">Ruena Raguero</h3>
               <!-- <p class="font-sans text-sm text-warm-gray mt-2 max-w-xs mx-auto">
                 Rachel's sister and best friend since day one. She's been there through it all.
               </p> -->
@@ -690,8 +697,8 @@
                 <img src="images/kuyaraywen.png" alt="Michael Rodriguez" class="w-full h-full object-cover" />
               </div> -->
               <p class="font-sans font-semibold text-[10px] tracking-widest uppercase text-gold mb-1">Parents of the Bride</p>
-              <h3 class="font-serif text-lg text-charcoal">Raymundo Bacarra</h3>
-              <h3 class="font-serif text-lg text-charcoal">Gloria Bacarra</h3>
+              <h3 class="font-serif text-sm sm:text-lg text-charcoal">Raymundo Bacarra</h3>
+              <h3 class="font-serif text-sm sm:text-lg text-charcoal">Gloria Bacarra</h3>
               <!-- <p class="font-sans text-sm text-warm-gray mt-2 max-w-xs mx-auto">
                 Raymond's college roommate and partner in crime. A friendship forged in adversity.
               </p> -->
@@ -701,31 +708,51 @@
           <!-- Principal Sponsors -->
           <div class="mb-12">
             <h3 class="font-script text-3xl text-center text-gold mb-8 section-hidden">Principal Sponsors</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
               <div class="mb-12">
                 <div class="text-center section-hidden">
-                  <h4 class="font-serif text-lg text-charcoal">David Fritz</h4>
+                  <h4 class="font-serif text-sm sm:text-lg text-charcoal">
+                    David Fritz <span class="font-script text-gold">&nbsp;&nbsp;&&nbsp;&nbsp;</span> Margarita Fritz
+                  </h4>
                 </div>
                 <div class="text-center section-hidden">
-                  <h4 class="font-serif text-lg text-charcoal">Eddie Ponciano</h4>
+                  <h4 class="font-serif text-sm sm:text-lg text-charcoal">
+                    Eddie Ponciano <span class="font-script text-gold">&nbsp;&nbsp;&&nbsp;&nbsp;</span> Irene Ponciano
+                  </h4>
                 </div>
                 <div class="text-center section-hidden">
-                  <h4 class="font-serif text-lg text-charcoal">Alfredo Morante Jr.</h4>
+                  <h4 class="font-serif text-sm sm:text-lg text-charcoal">
+                    Alfredo Morante Jr. <span class="font-script text-gold">&nbsp;&nbsp;&&nbsp;&nbsp;</span> Vivian Morante
+                  </h4>
                 </div>
                 <div class="text-center section-hidden">
-                  <h4 class="font-serif text-lg text-charcoal">Edsel Andrei Silo</h4>
+                  <h4 class="font-serif text-sm sm:text-lg text-charcoal">
+                    Edsel Andrei Silo <span class="font-script text-gold">&nbsp;&nbsp;&&nbsp;&nbsp;</span> Ramhona Silo
+                  </h4>
                 </div>
                 <div class="text-center section-hidden">
-                  <h4 class="font-serif text-lg text-charcoal">Miller Maranion</h4>
+                  <h4 class="font-serif text-sm sm:text-lg text-charcoal">
+                    Miller Maranion <span class="font-script text-gold">&nbsp;&nbsp;&&nbsp;&nbsp;</span> Lina Maranion
+                  </h4>
                 </div>
                 <div class="text-center section-hidden">
-                  <h4 class="font-serif text-lg text-charcoal">Jinggoy Calope</h4>
+                  <h4 class="font-serif text-sm sm:text-lg text-charcoal">
+                    Jinggoy Calope <span class="font-script text-gold">&nbsp;&nbsp;&&nbsp;&nbsp;</span> Yhen Calope
+                  </h4>
                 </div>
                 <div class="text-center section-hidden">
-                  <h4 class="font-serif text-lg text-charcoal">Ferdie Miranda</h4>
+                  <h4 class="font-serif text-sm sm:text-lg text-charcoal">
+                    Ferdie Miranda <span class="font-script text-gold">&nbsp;&nbsp;&&nbsp;&nbsp;</span> Alice Miranda
+                  </h4>
+                </div>
+                <div class="text-center section-hidden">
+                  <h4 class="font-serif text-sm sm:text-lg text-charcoal">Josie De Guia</h4>
+                </div>
+                <div class="text-center section-hidden">
+                  <h4 class="font-serif text-sm sm:text-lg text-charcoal">Glenda Leow</h4>
                 </div>
               </div>
-
+              <!-- 
               <div class="mb-12">
                 <div class="text-center section-hidden">
                   <h4 class="font-serif text-lg text-charcoal">Margarita Fritz</h4>
@@ -754,7 +781,7 @@
                 <div class="text-center section-hidden">
                   <h4 class="font-serif text-lg text-charcoal">Glenda Leow</h4>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
 
@@ -765,7 +792,7 @@
                 <img src="images/atepam.jpg" alt="Emily Thompson" class="w-full h-full object-cover" />
               </div> -->
               <p class="font-sans font-semibold text-[10px] tracking-widest uppercase text-gold mb-1">Maid of Honor</p>
-              <h3 class="font-serif text-lg text-charcoal">Czarina Pamela Bacarra</h3>
+              <h3 class="font-serif text-sm sm:text-lg text-charcoal">Czarina Pamela Bacarra</h3>
               <!-- <p class="font-sans text-sm text-warm-gray mt-2 max-w-xs mx-auto">
                 Rachel's sister and best friend since day one. She's been there through it all.
               </p> -->
@@ -775,7 +802,7 @@
                 <img src="images/kuyaraywen.png" alt="Michael Rodriguez" class="w-full h-full object-cover" />
               </div> -->
               <p class="font-sans font-semibold text-[10px] tracking-widest uppercase text-gold mb-1">Best Man</p>
-              <h3 class="font-serif text-lg text-charcoal">Raywen Raguero</h3>
+              <h3 class="font-serif text-sm sm:text-lg text-charcoal">Raywen Raguero</h3>
               <!-- <p class="font-sans text-sm text-warm-gray mt-2 max-w-xs mx-auto">
                 Raymond's college roommate and partner in crime. A friendship forged in adversity.
               </p> -->
@@ -796,8 +823,8 @@
                   </div>
                 </div> -->
                 <p class="font-sans font-semibold text-[10px] tracking-widest uppercase text-gold mb-1">Candle Sponsors</p>
-                <h4 class="font-serif text-lg text-charcoal">Carmela Bacarra</h4>
-                <h4 class="font-serif text-lg text-charcoal">Joemel Lactaotao</h4>
+                <h4 class="font-serif text-sm sm:text-lg text-charcoal">Carmela Bacarra</h4>
+                <h4 class="font-serif text-sm sm:text-lg text-charcoal">Joemel Lactaotao</h4>
               </div>
               <div class="text-center section-hidden">
                 <!-- <div class="grid grid-cols-2 gap-3">
@@ -809,8 +836,8 @@
                   </div>
                 </div> -->
                 <p class="font-sans font-semibold text-[10px] tracking-widest uppercase text-gold mb-1">Veil Sponsors</p>
-                <h4 class="font-serif text-lg text-charcoal">Rizza Bernardo</h4>
-                <h4 class="font-serif text-lg text-charcoal">Lorenz Baldovino</h4>
+                <h4 class="font-serif text-sm sm:text-lg text-charcoal">Rizza Bernardo</h4>
+                <h4 class="font-serif text-sm sm:text-lg text-charcoal">Lorenz Baldovino</h4>
               </div>
               <div class="text-center section-hidden">
                 <!-- <div class="grid grid-cols-2 gap-3">
@@ -822,190 +849,166 @@
                   </div>
                 </div> -->
                 <p class="font-sans font-semibold text-[10px] tracking-widest uppercase text-gold mb-1">Cord Sponsors</p>
-                <h4 class="font-serif text-lg text-charcoal">Judy Anne Cuyos</h4>
-                <h4 class="font-serif text-lg text-charcoal">John John Cuyos</h4>
+                <h4 class="font-serif text-sm sm:text-lg text-charcoal">Judy Anne Cuyos</h4>
+                <h4 class="font-serif text-sm sm:text-lg text-charcoal">John John Cuyos</h4>
               </div>
             </div>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div>
             <!-- Bridesmaids -->
             <div class="mb-12">
-              <h3 class="font-script text-3xl text-center text-gold mb-8 section-hidden">Bridesmaids</h3>
+              <h3 class="font-script text-3xl text-center text-gold mb-8 section-hidden">Bridesmaids&nbsp;&nbsp;&&nbsp;&nbsp;Groomsmen</h3>
+              <div class="text-center section-hidden">
+                <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
+                  <img src="http://static.photos/people/200x200/5" alt="Rachel Kim" class="w-full h-full object-cover" />
+                </div> -->
+                <h4 class="font-serif text-sm sm:text-lg text-charcoal">
+                  Neve Grace Novo <span class="font-script text-gold">&nbsp;&nbsp;&&nbsp;&nbsp;</span> John Syrell Gayares
+                </h4>
+                <!-- <p class="font-sans text-xs text-warm-gray">Work Friend</p> -->
+              </div>
               <div class="text-center section-hidden">
                 <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
                   <img src="http://static.photos/people/200x200/3" alt="Jessica Chen" class="w-full h-full object-cover" />
                 </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Jessa Fernandez</h4>
+                <h4 class="font-serif text-sm sm:text-lg text-charcoal">
+                  Jessa Fernandez <span class="font-script text-gold">&nbsp;&nbsp;&&nbsp;&nbsp;</span> Ghenry Barbaza
+                </h4>
                 <!-- <p class="font-sans text-xs text-warm-gray">College Friend</p> -->
               </div>
               <div class="text-center section-hidden">
                 <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
                   <img src="http://static.photos/people/200x200/4" alt="Amanda Lee" class="w-full h-full object-cover" />
                 </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Lorie Chin Claveria</h4>
+                <h4 class="font-serif text-sm sm:text-lg text-charcoal">
+                  Lorie Chin Claveria <span class="font-script text-gold">&nbsp;&nbsp;&&nbsp;&nbsp;</span> Rein Hart Caballa
+                </h4>
                 <!-- <p class="font-sans text-xs text-warm-gray">Childhood Friend</p> -->
               </div>
               <div class="text-center section-hidden">
                 <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
                   <img src="http://static.photos/people/200x200/6" alt="Sophie Martinez" class="w-full h-full object-cover" />
                 </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Melody Bacarra</h4>
-                <!-- <p class="font-sans text-xs text-warm-gray">Sister-in-law</p> -->
-              </div>
-              <div class="text-center section-hidden">
-                <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
-                  <img src="http://static.photos/people/200x200/5" alt="Rachel Kim" class="w-full h-full object-cover" />
-                </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Neve Grace Novo</h4>
-                <!-- <p class="font-sans text-xs text-warm-gray">Work Friend</p> -->
-              </div>
-              <div class="text-center section-hidden">
-                <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
-                  <img src="http://static.photos/people/200x200/6" alt="Sophie Martinez" class="w-full h-full object-cover" />
-                </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Rachel Angelette Estologa</h4>
+                <h4 class="font-serif text-sm sm:text-lg text-charcoal">
+                  Melody Bacarra <span class="font-script text-gold">&nbsp;&nbsp;&&nbsp;&nbsp;</span> James Tesoro
+                </h4>
                 <!-- <p class="font-sans text-xs text-warm-gray">Sister-in-law</p> -->
               </div>
               <div class="text-center section-hidden">
                 <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
                   <img src="http://static.photos/people/200x200/6" alt="Sophie Martinez" class="w-full h-full object-cover" />
                 </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Anne Klarisse Abines</h4>
+                <h4 class="font-serif text-sm sm:text-lg text-charcoal">
+                  Rachel Estologa <span class="font-script text-gold">&nbsp;&nbsp;&&nbsp;&nbsp;</span> Aldem John Grado
+                </h4>
                 <!-- <p class="font-sans text-xs text-warm-gray">Sister-in-law</p> -->
               </div>
               <div class="text-center section-hidden">
                 <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
                   <img src="http://static.photos/people/200x200/6" alt="Sophie Martinez" class="w-full h-full object-cover" />
                 </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Arianne Kate Urmeneta</h4>
+                <h4 class="font-serif text-sm sm:text-lg text-charcoal">
+                  Anne Klarisse Abines <span class="font-script text-gold">&nbsp;&nbsp;&&nbsp;&nbsp;</span> Delvin Anadeo
+                </h4>
                 <!-- <p class="font-sans text-xs text-warm-gray">Sister-in-law</p> -->
               </div>
               <div class="text-center section-hidden">
                 <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
                   <img src="http://static.photos/people/200x200/6" alt="Sophie Martinez" class="w-full h-full object-cover" />
                 </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Ivy Rose Cuenca</h4>
+                <h4 class="font-serif text-sm sm:text-lg text-charcoal">
+                  Arianne Kate Urmeneta <span class="font-script text-gold">&nbsp;&nbsp;&&nbsp;&nbsp;</span> Kim Bryan Laguartilla
+                </h4>
                 <!-- <p class="font-sans text-xs text-warm-gray">Sister-in-law</p> -->
               </div>
               <div class="text-center section-hidden">
                 <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
                   <img src="http://static.photos/people/200x200/6" alt="Sophie Martinez" class="w-full h-full object-cover" />
                 </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Marianne Tenorias</h4>
+                <h4 class="font-serif text-sm sm:text-lg text-charcoal">
+                  Ivy Rose Cuenca <span class="font-script text-gold">&nbsp;&nbsp;&&nbsp;&nbsp;</span> Ernie Delgado
+                </h4>
                 <!-- <p class="font-sans text-xs text-warm-gray">Sister-in-law</p> -->
               </div>
               <div class="text-center section-hidden">
                 <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
                   <img src="http://static.photos/people/200x200/6" alt="Sophie Martinez" class="w-full h-full object-cover" />
                 </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Theresa Allyson Laygo</h4>
+                <h4 class="font-serif text-sm sm:text-lg text-charcoal">
+                  Marianne Tenorias <span class="font-script text-gold">&nbsp;&nbsp;&&nbsp;&nbsp;</span> Joseph Tan
+                </h4>
                 <!-- <p class="font-sans text-xs text-warm-gray">Sister-in-law</p> -->
               </div>
               <div class="text-center section-hidden">
                 <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
                   <img src="http://static.photos/people/200x200/6" alt="Sophie Martinez" class="w-full h-full object-cover" />
                 </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Grace Ann De Leon</h4>
+                <h4 class="font-serif text-sm sm:text-lg text-charcoal">
+                  Allyson Laygo <span class="font-script text-gold">&nbsp;&nbsp;&&nbsp;&nbsp;</span> Dharyll Sulat
+                </h4>
                 <!-- <p class="font-sans text-xs text-warm-gray">Sister-in-law</p> -->
               </div>
               <div class="text-center section-hidden">
                 <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
                   <img src="http://static.photos/people/200x200/6" alt="Sophie Martinez" class="w-full h-full object-cover" />
                 </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Aira Ponciano</h4>
+                <h4 class="font-serif text-sm sm:text-lg text-charcoal">
+                  Grace Ann De Leon <span class="font-script text-gold">&nbsp;&nbsp;&&nbsp;&nbsp;</span> Patrick Francisco
+                </h4>
+                <!-- <p class="font-sans text-xs text-warm-gray">Sister-in-l aw</p> -->
+              </div>
+              <div class="text-center section-hidden">
+                <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
+                  <img src="http://static.photos/people/200x200/6" alt="Sophie Martinez" class="w-full h-full object-cover" />
+                </div> -->
+                <h4 class="font-serif text-sm sm:text-lg text-charcoal">
+                  Aira Ponciano <span class="font-script text-gold">&nbsp;&nbsp;&&nbsp;&nbsp;</span> Bryan Emil Bril
+                </h4>
                 <!-- <p class="font-sans text-xs text-warm-gray">Sister-in-law</p> -->
               </div>
             </div>
 
             <!-- Groomsmen -->
-            <div class="mb-12">
+            <!-- <div class="mb-12">
               <h3 class="font-script text-3xl text-center text-gold mb-8 section-hidden">Groomsmen</h3>
               <div class="text-center section-hidden">
-                <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
-                  <img src="http://static.photos/people/200x200/7" alt="David Park" class="w-full h-full object-cover" />
-                </div> -->
-                <h4 class="font-serif text-lg text-charcoal">John Syrell Gayares</h4>
-                <!-- <p class="font-sans text-xs text-warm-gray">Brother</p> -->
+                <h4 class="font-serif text-md sm:text-lg text-charcoal">Syrell Gayares</h4>
               </div>
               <div class="text-center section-hidden">
-                <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
-                  <img src="http://static.photos/people/200x200/7" alt="David Park" class="w-full h-full object-cover" />
-                </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Ghenry Barbaza</h4>
-                <!-- <p class="font-sans text-xs text-warm-gray">Brother</p> -->
+                <h4 class="font-serif text-md sm:text-lg text-charcoal">Ghenry Barbaza</h4>
               </div>
               <div class="text-center section-hidden">
-                <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
-                  <img src="http://static.photos/people/200x200/10" alt="Eric Brooks" class="w-full h-full object-cover" />
-                </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Aldem John Grado</h4>
-                <!-- <p class="font-sans text-xs text-warm-gray">Neighbor</p> -->
+                <h4 class="font-serif text-md sm:text-lg text-charcoal">Aldem Grado</h4>
               </div>
               <div class="text-center section-hidden">
-                <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
-                  <img src="http://static.photos/people/200x200/8" alt="Ryan Foster" class="w-full h-full object-cover" />
-                </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Dharyll Sulat</h4>
-                <!-- <p class="font-sans text-xs text-warm-gray">College Friend</p> -->
+                <h4 class="font-serif text-md sm:text-lg text-charcoal">Dharyll Sulat</h4>
               </div>
               <div class="text-center section-hidden">
-                <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
-                  <img src="http://static.photos/people/200x200/9" alt="Chris Taylor" class="w-full h-full object-cover" />
-                </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Bryan Emil Bril</h4>
-                <!-- <p class="font-sans text-xs text-warm-gray">Work Friend</p> -->
+                <h4 class="font-serif text-md sm:text-lg text-charcoal">Bryan Bril</h4>
               </div>
               <div class="text-center section-hidden">
-                <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
-                  <img src="http://static.photos/people/200x200/7" alt="David Park" class="w-full h-full object-cover" />
-                </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Rein Hart Caballa</h4>
-                <!-- <p class="font-sans text-xs text-warm-gray">Brother</p> -->
+                <h4 class="font-serif text-md sm:text-lg text-charcoal">Rein Caballa</h4>
               </div>
               <div class="text-center section-hidden">
-                <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
-                  <img src="http://static.photos/people/200x200/9" alt="Chris Taylor" class="w-full h-full object-cover" />
-                </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Patrick Francisco</h4>
-                <!-- <p class="font-sans text-xs text-warm-gray">Work Friend</p> -->
+                <h4 class="font-serif text-md sm:text-lg text-charcoal">Patrick Francisco</h4>
               </div>
               <div class="text-center section-hidden">
-                <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
-                  <img src="http://static.photos/people/200x200/9" alt="Chris Taylor" class="w-full h-full object-cover" />
-                </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Kim Bryan Laguartilla</h4>
-                <!-- <p class="font-sans text-xs text-warm-gray">Work Friend</p> -->
+                <h4 class="font-serif text-md sm:text-lg text-charcoal">Kim Laguartilla</h4>
               </div>
               <div class="text-center section-hidden">
-                <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
-                  <img src="http://static.photos/people/200x200/9" alt="Chris Taylor" class="w-full h-full object-cover" />
-                </div> -->
-                <h4 class="font-serif text-lg text-charcoal">James Tesoro</h4>
-                <!-- <p class="font-sans text-xs text-warm-gray">Work Friend</p> -->
+                <h4 class="font-serif text-md sm:text-lg text-charcoal">James Tesoro</h4>
               </div>
               <div class="text-center section-hidden">
-                <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
-                  <img src="http://static.photos/people/200x200/7" alt="David Park" class="w-full h-full object-cover" />
-                </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Delvin Anadeo</h4>
-                <!-- <p class="font-sans text-xs text-warm-gray">Brother</p> -->
+                <h4 class="font-serif text-md sm:text-lg text-charcoal">Delvin Anadeo</h4>
               </div>
               <div class="text-center section-hidden">
-                <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
-                  <img src="http://static.photos/people/200x200/10" alt="Eric Brooks" class="w-full h-full object-cover" />
-                </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Ernie Delgado</h4>
-                <!-- <p class="font-sans text-xs text-warm-gray">Neighbor</p> -->
+                <h4 class="font-serif text-md sm:text-lg text-charcoal">Ernie Delgado</h4>
               </div>
               <div class="text-center section-hidden">
-                <!-- <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-3 overflow-hidden border-3 border-white shadow-md">
-                  <img src="http://static.photos/people/200x200/8" alt="Ryan Foster" class="w-full h-full object-cover" />
-                </div> -->
-                <h4 class="font-serif text-lg text-charcoal">Joseph Tan</h4>
-                <!-- <p class="font-sans text-xs text-warm-gray">College Friend</p> -->
+                <h4 class="font-serif text-md sm:text-lg text-charcoal">Joseph Tan</h4>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <!-- Others -->
@@ -1015,7 +1018,7 @@
                 <i data-lucide="gem" class="w-6 h-6 text-gold"></i>
               </div>
               <p class="font-sans font-semibold text-[10px] tracking-widest uppercase text-gold mb-1">Ring Bearer</p>
-              <h4 class="font-serif text-lg text-charcoal">Luke Matthew Cuyos</h4>
+              <h4 class="font-serif text-sm sm:text-lg text-charcoal">Luke Matthew Cuyos</h4>
             </div>
             <!-- <div class="text-center section-hidden">
               <div class="w-16 h-16 rounded-full mx-auto mb-2 bg-white/60 flex items-center justify-center">
@@ -1029,23 +1032,23 @@
                 <i data-lucide="flower-2" class="w-6 h-6 text-gold"></i>
               </div>
               <p class="font-sans font-semibold text-[10px] tracking-widest uppercase text-gold mb-1">Flower Girls</p>
-              <h4 class="font-serif text-lg text-charcoal">Czabrina Louela Baldovino</h4>
-              <h4 class="font-serif text-lg text-charcoal">Zoe Claire Raguero</h4>
-              <h4 class="font-serif text-lg text-charcoal">Shaira De Leon</h4>
+              <h4 class="font-serif text-sm sm:text-lg text-charcoal">Czabrina Louela Baldovino</h4>
+              <h4 class="font-serif text-sm sm:text-lg text-charcoal">Zoe Claire Raguero</h4>
+              <h4 class="font-serif text-sm sm:text-lg text-charcoal">Shaira De Leon</h4>
             </div>
             <div class="text-center section-hidden">
               <div class="w-16 h-16 rounded-full mx-auto mb-2 bg-white/60 flex items-center justify-center">
                 <i data-lucide="book-open" class="w-6 h-6 text-gold"></i>
               </div>
               <p class="font-sans font-semibold text-[10px] tracking-widest uppercase text-gold mb-1">Bible Bearer</p>
-              <h4 class="font-serif text-lg text-charcoal">Ark Kaizer Raguero</h4>
+              <h4 class="font-serif text-sm sm:text-lg text-charcoal">Ark Kaizer Raguero</h4>
             </div>
             <div class="text-center section-hidden">
               <div class="w-16 h-16 rounded-full mx-auto mb-2 bg-white/60 flex items-center justify-center">
                 <i data-lucide="coins" class="w-6 h-6 text-gold"></i>
               </div>
               <p class="font-sans font-semibold text-[10px] tracking-widest uppercase text-gold mb-1">Coin Bearer</p>
-              <h4 class="font-serif text-lg text-charcoal">Liam Rae Cuyos</h4>
+              <h4 class="font-serif text-sm sm:text-lg text-charcoal">Liam Rae Cuyos</h4>
             </div>
           </div>
         </div>
