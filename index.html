@@ -475,6 +475,9 @@
 
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center gap-8">
+              <a href="#story" class="nav-link font-sans text-xs tracking-widest uppercase text-warm-gray hover:text-charcoal transition-colors"
+                >Our Story</a
+              >
               <a href="#timeline" class="nav-link font-sans text-xs tracking-widest uppercase text-warm-gray hover:text-charcoal transition-colors"
                 >Timeline</a
               >
@@ -516,6 +519,7 @@
           <i data-lucide="x" class="w-6 h-6 text-charcoal"></i>
         </button>
         <div class="mt-16 flex flex-col gap-6">
+          <a href="#story" onclick="toggleMobileMenu()" class="font-serif text-2xl text-charcoal hover:text-gold transition-colors">Our Story</a>
           <a href="#timeline" onclick="toggleMobileMenu()" class="font-serif text-2xl text-charcoal hover:text-gold transition-colors">Timeline</a>
           <a href="#entourage" onclick="toggleMobileMenu()" class="font-serif text-2xl text-charcoal hover:text-gold transition-colors">Entourage</a>
           <a href="#attire" onclick="toggleMobileMenu()" class="font-serif text-2xl text-charcoal hover:text-gold transition-colors">Attire</a>
@@ -576,6 +580,55 @@
             class="inline-block font-sans text-sm tracking-widest uppercase bg-gold text-white px-10 py-3 rounded hover:bg-gold-dark transition-all hover:shadow-lg section-hidden">
             Respond to RSVP
           </a>
+        </div>
+      </section>
+
+      <!-- Our Story Section -->
+      <section id="story" class="py-20 sm:py-28 bg-blush paper-texture">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+          <div class="text-center mb-12 section-hidden">
+            <p class="font-sans text-xs tracking-[0.3em] uppercase text-gold mb-3">A Little About Us</p>
+            <h2 class="font-serif text-4xl sm:text-5xl text-charcoal">Our Story</h2>
+            <div class="flex items-center gap-4 justify-center mt-4">
+              <div class="h-px w-16 bg-gold"></div>
+              <i data-lucide="heart" class="w-4 h-4 text-gold"></i>
+              <div class="h-px w-16 bg-gold"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="rounded-[2rem] bg-cream border border-gold/15 p-8 sm:p-10 shadow-sm section-hidden">
+              <p class="font-script text-2xl text-gold mb-3">From the first hello to forever</p>
+              <p class="font-serif text-lg leading-relaxed text-charcoal mb-4">
+                Our story began with a simple connection that grew into something beautiful, steady, and full of love. What started as a spark turned
+                into a friendship, then a partnership, and now a lifelong journey together.
+              </p>
+              <p class="font-serif text-lg leading-relaxed text-charcoal">
+                We were classmates in college, just two people crossing paths in the same classroom. One day, he asked for my number from a friend and
+                sent me a message that simply said “hi.” That small gesture became the spark that lit our story. We often dated in Quiapo church,
+                where our bond grew stronger with every visit. In those quiet moments, I knew he was the one. From classmates to soulmates, our
+                journey has led us here—to a love that lasts forever.
+              </p>
+            </div>
+
+            <!-- <div class="rounded-[2rem] bg-blush p-8 sm:p-10 shadow-sm section-hidden">
+              <p class="font-sans text-xs tracking-[0.3em] uppercase text-gold mb-4">What we value</p>
+              <ul class="space-y-4 text-charcoal">
+                <li class="flex gap-3">
+                  <i data-lucide="sparkles" class="w-5 h-5 text-gold mt-1"></i>
+                  <span class="font-serif text-lg">Love that grows through laughter, patience, and everyday kindness.</span>
+                </li>
+                <li class="flex gap-3">
+                  <i data-lucide="sun" class="w-5 h-5 text-gold mt-1"></i>
+                  <span class="font-serif text-lg">A life built on faith, family, and the joy of sharing each moment.</span>
+                </li>
+                <li class="flex gap-3">
+                  <i data-lucide="flower2" class="w-5 h-5 text-gold mt-1"></i>
+                  <span class="font-serif text-lg">A future filled with hope, adventure, and the people we love most.</span>
+                </li>
+              </ul>
+            </div> -->
+          </div>
         </div>
       </section>
 
