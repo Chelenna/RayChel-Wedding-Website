@@ -474,6 +474,26 @@
     </style>
   </head>
   <body class="bg-cream text-charcoal">
+    <!-- Background Music -->
+    <audio id="bgMusic" autoplay muted loop>
+      <source src="music/music.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <!-- Music Player Control -->
+    <div id="musicControl" class="fixed bottom-6 right-6 z-40 flex items-center gap-2">
+      <button
+        id="playMusicBtn"
+        onclick="playMusic()"
+        class="bg-gold hover:bg-gold-dark text-white p-3 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center"
+        title="Click to play music">
+        <i data-lucide="music" class="w-5 h-5"></i>
+      </button>
+      <span id="musicHint" class="bg-charcoal text-white px-3 py-2 rounded text-sm font-sans whitespace-nowrap animate-pulse">
+        Click to play music
+      </span>
+    </div>
+
     <!-- Envelope Opening Scene -->
     <div id="envelopeScene" class="envelope-scene">
       <div class="text-center">
@@ -2169,6 +2189,53 @@
           }
         });
       });
+
+      // ======== MUSIC PLAYER ========
+      let musicAttempted = false;
+
+      function playMusic() {
+        const bgMusic = document.getElementById("bgMusic");
+        const playBtn = document.getElementById("playMusicBtn");
+        const musicHint = document.getElementById("musicHint");
+
+        bgMusic.muted = false;
+        bgMusic
+          .play()
+          .then(() => {
+            playBtn.style.display = "none";
+            musicHint.style.display = "none";
+            musicAttempted = true;
+          })
+          .catch((err) => {
+            console.log("Autoplay prevented:", err);
+          });
+      }
+
+      // Attempt autoplay on page load
+      window.addEventListener("DOMContentLoaded", () => {
+        const bgMusic = document.getElementById("bgMusic");
+        bgMusic
+          .play()
+          .then(() => {
+            // Autoplay succeeded
+            document.getElementById("playMusicBtn").style.display = "none";
+            document.getElementById("musicHint").style.display = "none";
+            musicAttempted = true;
+          })
+          .catch((err) => {
+            console.log("Autoplay prevented - user interaction required");
+          });
+      });
+
+      // Hide the music button once music plays
+      document.getElementById("bgMusic").addEventListener("play", () => {
+        if (musicAttempted) {
+          document.getElementById("playMusicBtn").style.display = "none";
+          document.getElementById("musicHint").style.display = "none";
+        }
+      });
+
+      window.playMusic = playMusic;
     </script>
   </body>
 </html>
